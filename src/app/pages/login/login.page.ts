@@ -39,26 +39,33 @@ export class LoginPage implements OnInit {
   async login() {
     const loading = await this.loadingController.create();
     await loading.present();
-    // console.log(this.email + this.password);
+
     if (this.ionicForm.valid) {
+        try {
+            const user = await this.authService.LoginUser(
+                this.ionicForm.value.email,
+                this.ionicForm.value.password
+            );
 
-      //  await  loading.dismiss();
-      const user = await this.authService.LoginUser(this.ionicForm.value.email, this.ionicForm.value.password).catch((err) => {
-        this.presentToast(err)
-        console.log(err);
-        loading.dismiss();
-      })
-
-      if (user) {
-        loading.dismiss();
-        this.router.navigate(
-          ['/tabsgeneral/home'])
-      }
+            if (user) {
+                loading.dismiss();
+                this.router.navigate(['/tabsgeneral/home']);
+            }
+        } catch (err: any) {
+            // Extraer el mensaje de error
+            const errorMessage = err?.message || 'Error desconocido. Inténtalo de nuevo.';
+            this.presentToast(errorMessage);  // Llamar a presentToast con el mensaje de error
+            console.log(err);
+            // Desaparecer el loading después de 2 segundos
+            setTimeout(() => {
+                loading.dismiss();
+            }, 2000);
+        }
     } else {
-      return console.log('Please provide all the required values!');
+        console.log('Please provide all the required values!');
+        loading.dismiss();  // Desaparece el loading si el formulario no es válido
     }
-
-  }
+}
   get errorControl() {
     return this.ionicForm.controls;
   }
