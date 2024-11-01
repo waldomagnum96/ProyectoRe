@@ -6,6 +6,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   providedIn: 'root'
 })
 export class AutheticationService {
+  auth: any;
 
   constructor(public ngFireAuth: AngularFireAuth) { }
 
@@ -28,4 +29,6 @@ export class AutheticationService {
   async getProfile(){
     return await this.ngFireAuth.currentUser
   }
+
+ 
 }

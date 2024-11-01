@@ -1,5 +1,6 @@
 import { Component, ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AutheticationService } from 'src/app/services/authetication.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomePage {
   login:any;
-  constructor(public router:Router,private activedRoute: ActivatedRoute) {
+  user: null;
+  constructor(public router:Router,private activedRoute: ActivatedRoute, private authService: AutheticationService) {
     this.activedRoute.queryParams.subscribe(params =>{
       if(this.router.getCurrentNavigation()?.extras?.state){
         this.login=this.router.getCurrentNavigation()?.extras?.state?.['login'];
@@ -30,5 +32,16 @@ export class HomePage {
   
     this.isPlaying = !this.isPlaying; // Cambia el estado de reproducción
   }
+  
+  async signOut() {
+    try {
+      await this.authService.singOut(); // Llamar al método de cerrar sesión en el servicio
+      this.router.navigate(['/login']); // Navegar a la página de login
+    } catch (error) {
+      console.error('Error al cerrar sesión', error);
+    }
+  }
+
+ 
   
 }

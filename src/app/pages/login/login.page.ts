@@ -36,6 +36,19 @@ export class LoginPage implements OnInit {
     });
   }
 
+  
+
+
+
+
+
+
+
+
+
+
+
+
   async login() {
     const loading = await this.loadingController.create();
     await loading.present();
@@ -81,4 +94,21 @@ export class LoginPage implements OnInit {
 
     await toast.present();
   }
+
+
+
+
+  async ionViewWillEnter() {
+    const user = await this.authService.getProfile(); // Verificar si hay un usuario actual en Firebase
+
+    if (!user) {
+      // Si no hay usuario autenticado, limpiar el formulario
+      this.ionicForm.reset();
+    }
+  }
+  
+
+
+
+  
 }
