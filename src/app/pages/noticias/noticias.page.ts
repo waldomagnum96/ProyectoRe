@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
 import { DbserviceService } from 'src/app/services/dbservice.service';
 
 @Component({
@@ -15,8 +17,17 @@ export class NoticiasPage implements OnInit {
       texto: "Texto de la noticia que quiero que salga en el cuerpo del item"
     }
   ];
+  editForm: FormGroup;
 
-  constructor(private dbService: DbserviceService) { }
+  constructor(private dbService: DbserviceService, private modalCtrl: ModalController, private fb: FormBuilder) { 
+    this.editForm = this.fb.group({
+      id: [''],
+      titulo: [''],
+      texto: ['']
+    });
+  }
+
+    
 
    // Nueva función para eliminar noticia
    eliminarNoticia(noticias: any) {
@@ -39,5 +50,38 @@ export class NoticiasPage implements OnInit {
       }
     });
   }
+
+
+
+
+
+  // Abre el modal para editar la noticia
+  async editarNoticia(noticia: { id: any; titulo: any; texto: any; }) {
+    this.editForm.patchValue({
+      id: noticia.id,
+      titulo: noticia.titulo,
+      texto: noticia.texto
+    });
+    const modal = await this.modalCtrl.create({
+      component: this.actualizarNoticia, // puedes crear un componente de modal específico para la edición
+      componentProps: { noticia: this.editForm }
+    });
+    return await modal.present();
+  }
+
+  // Método que llama a actualizar noticia en el servicio
+  actualizarNoticia() {
+    const { id, titulo, texto } = this.editForm.value;
+    this.dbService.updateNoticia(id, titulo, texto).then(() => {
+      this.dbService.cargarNoticias(); // Recarga la lista después de actualizar
+      this.modalCtrl.dismiss();
+    });
+  }
+  
+
+
+
+
+
 
 }
