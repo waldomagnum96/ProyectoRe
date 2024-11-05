@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
+import { NotfoundPage } from './pages/notfound/notfound.page';
 
 const routes: Routes = [
   {
@@ -52,6 +53,17 @@ const routes: Routes = [
     path: 'testeoapi',
     loadChildren: () => import('./pages/testeoapi/testeoapi.module').then( m => m.TesteoapiPageModule)
   },
+  {
+    path: 'notfound',
+    loadChildren: () => import('./pages/notfound/notfound.module').then( m => m.NotfoundPageModule)
+  },
+
+
+
+
+
+  { path: 'not-found', component: NotfoundPage },
+  { path: '**', redirectTo: 'not-found' }
 ];
 
 @NgModule({
