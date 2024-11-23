@@ -57,13 +57,17 @@ const routes: Routes = [
     path: 'notfound',
     loadChildren: () => import('./pages/notfound/notfound.module').then( m => m.NotfoundPageModule)
   },
-
+  {
+    path: 'apiresident',
+    loadChildren: () => import('./pages/apiresident/apiresident.module').then( m => m.ApiresidentPageModule)
+  },
 
 
 
 
   { path: 'not-found', component: NotfoundPage },
-  { path: '**', redirectTo: 'not-found' }
+  { path: '**', redirectTo: 'not-found' },
+  
 ];
 
 @NgModule({

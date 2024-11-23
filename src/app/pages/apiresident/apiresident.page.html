@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Información de Juegos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar
+    placeholder="Buscar juegos"
+    (ionInput)="searchGame($event.target.value)">
+  </ion-searchbar>
+
+  <ion-card *ngIf="gameDetails && gameDetails.results.length > 0">
+    <ion-card-header>
+      <ion-card-title>{{ gameDetails.results[0].name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Rating:</strong> {{ gameDetails.results[0].rating }}</p>
+      <p><strong>Fecha de lanzamiento:</strong> {{ gameDetails.results[0].released }}</p>
+      <img [src]="gameDetails.results[0].background_image" alt="Imagen del juego" />
+    </ion-card-content>
+  </ion-card>
+
+  <p *ngIf="!gameDetails || gameDetails.results.length === 0">
+    No se encontraron resultados.
+  </p>
+</ion-content>
