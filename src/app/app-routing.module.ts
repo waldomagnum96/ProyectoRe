@@ -61,12 +61,16 @@ const routes: Routes = [
     path: 'apiresident',
     loadChildren: () => import('./pages/apiresident/apiresident.module').then( m => m.ApiresidentPageModule)
   },
-
+  {
+    path: 'pluginnativo',
+    loadChildren: () => import('./pages/pluginnativo/pluginnativo.module').then( m => m.PluginnativoPageModule)
+  },
 
 
 
   { path: 'not-found', component: NotfoundPage },
   { path: '**', redirectTo: 'not-found' },
+  
   
 ];
 
