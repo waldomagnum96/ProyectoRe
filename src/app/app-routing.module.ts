@@ -65,11 +65,15 @@ const routes: Routes = [
     path: 'pluginnativo',
     loadChildren: () => import('./pages/pluginnativo/pluginnativo.module').then( m => m.PluginnativoPageModule)
   },
-
+  {
+    path: 'residentzerobows',
+    loadChildren: () => import('./pages/residentzerobows/residentzerobows.module').then( m => m.ResidentzerobowsPageModule)
+  },
 
 
   { path: 'not-found', component: NotfoundPage },
   { path: '**', redirectTo: 'not-found' },
+ 
   
   
 ];
