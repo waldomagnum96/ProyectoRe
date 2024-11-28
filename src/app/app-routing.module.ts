@@ -71,8 +71,21 @@ const routes: Routes = [
   },
 
 
+  {
+    path: 'rezeroperso',
+    loadChildren: () => import('./pages/rezeroperso/rezeroperso.module').then( m => m.RezeropersoPageModule)
+  },
+
+  {
+    path: 'rezeroarmas',
+    loadChildren: () => import('./pages/rezeroarmas/rezeroarmas.module').then( m => m.RezeroarmasPageModule)
+  },
+
+
   { path: 'not-found', component: NotfoundPage },
   { path: '**', redirectTo: 'not-found' },
+  
+  
  
   
   
