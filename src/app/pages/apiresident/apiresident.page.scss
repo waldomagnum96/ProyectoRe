@@ -1,0 +1,48 @@
+ion-content{
+    --background: url(/assets/img/fondo2.png) no-repeat center center / cover
+}
+
+.color-header{
+    --background: #000000; /* Color negro */
+  --color: white; /* Texto en blanco */
+}
+
+
+.custom-card {
+    background: rgba(0, 0, 0, 0.8); /* Fondo negro transparente */
+    color: white; /* Texto blanco */
+    border-radius: 10px; /* Bordes redondeados opcionales */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Sombra opcional */
+  
+    ion-card-title {
+      font-weight: bold;
+    }
+  
+    ion-card-content {
+      p {
+        margin: 5px 0;
+      }
+  
+      img {
+        max-width: 100%;
+        border-radius: 5px; /* Opcional, para redondear la imagen */
+      }
+      
+    }
+  }
+
+.titulo{
+    color: #fff !important; /* Forzar blanco en el título */
+    font-weight: bold; /* Opcional: hace que el título sea más destacado */
+}
+
+
+.custom-searchbar {
+    --background: rgba(0, 0, 0, 0.7); /* Fondo negro transparente */
+    --color: #fff; /* Color del texto */
+    --placeholder-color: rgba(255, 255, 255, 0.7); /* Color del texto del placeholder */
+    --icon-color: #fff; /* Color del icono de búsqueda */
+    --highlight-color: #fff; /* Color del texto resaltado */
+    --input-background: transparent; /* Fondo del campo de texto */
+    border-radius: 10px; /* Esquinas redondeadas */
+}

@@ -81,9 +81,15 @@ const routes: Routes = [
     loadChildren: () => import('./pages/rezeroarmas/rezeroarmas.module').then( m => m.RezeroarmasPageModule)
   },
 
+  {
+    path: 'rezerohistoria',
+    loadChildren: () => import('./pages/rezerohistoria/rezerohistoria.module').then( m => m.RezerohistoriaPageModule)
+  },
+
 
   { path: 'not-found', component: NotfoundPage },
   { path: '**', redirectTo: 'not-found' },
+  
   
   
  

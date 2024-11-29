@@ -1,9 +1,19 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>pluginnativo</ion-title>
+<ion-header [translucent]="true" class="custom-header">
+  <ion-toolbar class="color-header">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Página Oficial</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button (click)="openBrowser()">Abrir Sitio Web</ion-button>
+  <div>
+    <img class="raccon-font" src="../../../assets/img/racconcityfont.png" alt="racconcity">
+  </div>
+  <div class="texto">
+    <h4>Visita la página oficial de Resident Evil</h4>
+    <h4>Haz click en el siguiente botón</h4>
+  </div>
+  <ion-button class="boton-oficial" (click)="openBrowser()">Abrir Sitio Web</ion-button>
 </ion-content>

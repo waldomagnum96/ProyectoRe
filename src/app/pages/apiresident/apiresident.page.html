@@ -1,18 +1,21 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Información de Juegos</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar class="color-header">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Información</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-searchbar
+  <ion-searchbar class="custom-searchbar"
     placeholder="Buscar juegos"
     (ionInput)="searchGame($event.target.value)">
   </ion-searchbar>
 
-  <ion-card *ngIf="gameDetails && gameDetails.results.length > 0">
+  <ion-card class="custom-card" *ngIf="gameDetails && gameDetails.results.length > 0">
     <ion-card-header>
-      <ion-card-title>{{ gameDetails.results[0].name }}</ion-card-title>
+      <ion-card-title class="titulo">{{ gameDetails.results[0].name }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <p><strong>Rating:</strong> {{ gameDetails.results[0].rating }}</p>

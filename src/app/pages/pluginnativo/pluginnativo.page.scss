@@ -1,0 +1,39 @@
+.color-header {
+    --background: rgb(0, 0, 0) !important; /* Fondo negro semitransparente */
+    --color: white; /* Texto blanco */
+    --border-color: rgba(255, 255, 255, 0.3); /* Opcional: borde inferior */
+  }
+
+ion-content{
+    --background: url(/assets/img/fondo2.png) no-repeat center center / cover
+}
+
+.racconfont{
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.texto{
+    color: white;
+    text-align: center;
+}
+
+.boton-oficial{
+    --background-color: #ffc33f;
+    --background: #ffc33f;
+    
+    display: flex;
+    max-width: 200px;
+    
+    margin-top: 30px;
+    margin-left: 110px;
+    --border-radius: 30px;
+}
+
+
+.custom-header {
+    ion-toolbar {
+      --background: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+      backdrop-filter: blur(10px); /* Mantén el desenfoque */
+    }
+}
