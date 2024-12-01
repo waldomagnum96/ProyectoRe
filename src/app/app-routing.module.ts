@@ -86,9 +86,27 @@ const routes: Routes = [
     loadChildren: () => import('./pages/rezerohistoria/rezerohistoria.module').then( m => m.RezerohistoriaPageModule)
   },
 
+  {
+    path: 'reremake',
+    loadChildren: () => import('./pages/reremake/reremake.module').then( m => m.ReremakePageModule)
+  },
+
+  {
+    path: 'reremakebow',
+    loadChildren: () => import('./pages/reremakebow/reremakebow.module').then( m => m.ReremakebowPageModule)
+  },
+
+  {
+    path: 'reremakeperso',
+    loadChildren: () => import('./pages/reremakeperso/reremakeperso.module').then( m => m.ReremakepersoPageModule)
+  },
+
 
   { path: 'not-found', component: NotfoundPage },
   { path: '**', redirectTo: 'not-found' },
+  
+  
+  
   
   
   

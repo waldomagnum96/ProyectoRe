@@ -1,71 +1,36 @@
-ion-content{
-    --background: url(/assets/img/fondo2.png) no-repeat center center / cover
-}
-
-.racconfont{
-    max-width: 200px;
-    max-height: 200px;
-}
-
-.juegos-titulo{
-    font-size: 25px;
-    color: white;
-    margin-left: 10px;
-    font-family: "Oswald";
-}
-
 .example-card {
     max-width: 350px;
     background-color: rgb(0, 0, 0);
     border-color: rgb(255, 255, 255);
-    margin-top: 20px;
+    
     margin-bottom: 20px;
     margin-left: 30px;
-    margin-right: 30px;
-    flex-shrink: 0;
-    
     p{
             color: rgb(255, 255, 255);
     }
 
   }
 
-  .titulo-color{
-    color: white;
-}
-
-.comic-hori{
-    display: flex;
-    overflow-x: scroll !important;
-    gap: 10px;
-    scrollbar-width: none;
-    
-}
-
-.novelas-hori{
-    display: flex;
-    overflow-x: scroll;
-    gap: 10px;
-    scrollbar-width: none;
-}
-
-
-.otros-hori{
-    display: flex;
-    overflow-x: scroll;
-    gap: 10px;
-    scrollbar-width: none;
-}
-
 .color-header{
     --background: #000000d5; /* Color negro */
   --color: white; /* Texto en blanco */
 }
 
-.alinear-botones{
-        display: flex;
-        justify-content: space-between;
+.imgre0{
+    max-height: 300px;
+    object-fit: cover;
+    object-position: center;
+} 
+
+ion-content{
+    --background: url(/assets/img/fondo2.png) no-repeat center center / cover
+    }
+
+
+.titulo-color{
+        color: white;
 }
+
 
 
 

@@ -29,15 +29,17 @@ export class NoticiasPage implements OnInit {
 
     
 
-   // Nueva función para eliminar noticia
-   eliminarNoticia(noticias: any) {
-    // Primero la elimina de la base de datos
-    this.dbService.deleteNoticia(noticias.id).then(() => {
-      // Luego la eliminamos del arreglo local
-      this.noticias = this.noticias.filter((item: any) => item.id !== noticias.id);
-    }).catch((error) => {
-      console.error("Error eliminando la noticia: ", error);
-    });
+  eliminarNoticia(noticias: any) {
+    this.dbService.deleteNoticia(noticias.id)
+      .then(() => {
+        // Recargar la lista desde la base de datos
+        this.dbService.fetchNoticias().subscribe((item: any) => {
+          this.noticias = item;
+        });
+      })
+      .catch((error) => {
+        console.error("Error eliminando la noticia: ", error);
+      });
   }
  
 

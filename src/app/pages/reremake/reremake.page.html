@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="color-header">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Resident Evil Remake</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+    <img class="foto-principal" src="../../../assets/img/remake1.png" alt="">
+  </div>
+  <div class="fondo">
+    <ion-button color="medium" class="boton1" [routerLink] ="['/reremakeperso']">Personajes</ion-button>
+    <ion-button color="medium" class="boton1" [routerLink] ="['/reremakebow']">B.O.W</ion-button>
+    <ion-button color="medium" class="boton1" [routerLink] ="['/rezeroarmas']">Armas</ion-button>
+    <ion-button color="medium" class="boton1" [routerLink] ="['/rezerohistoria']">Historia</ion-button>
+    <ion-button color="medium" class="boton2">Files</ion-button>
+  </div>
+</ion-content>
