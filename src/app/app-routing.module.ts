@@ -101,9 +101,63 @@ const routes: Routes = [
     loadChildren: () => import('./pages/reremakeperso/reremakeperso.module').then( m => m.ReremakepersoPageModule)
   },
 
+  {
+    path: 'reremakearmas',
+    loadChildren: () => import('./pages/reremakearmas/reremakearmas.module').then( m => m.ReremakearmasPageModule)
+  },
+
+  {
+    path: 'reremakehistoria',
+    loadChildren: () => import('./pages/reremakehistoria/reremakehistoria.module').then( m => m.ReremakehistoriaPageModule)
+  },
+
+  {
+    path: 're2',
+    loadChildren: () => import('./pages/re2/re2.module').then( m => m.Re2PageModule)
+  },
+
+  {
+    path: 're2bow',
+    loadChildren: () => import('./pages/re2bow/re2bow.module').then( m => m.Re2bowPageModule)
+  },
+
+  {
+    path: 're2perso',
+    loadChildren: () => import('./pages/re2perso/re2perso.module').then( m => m.Re2persoPageModule)
+  },
+
+  {
+    path: 're2arma',
+    loadChildren: () => import('./pages/re2arma/re2arma.module').then( m => m.Re2armaPageModule)
+  },
+
+  {
+    path: 're2histo',
+    loadChildren: () => import('./pages/re2histo/re2histo.module').then( m => m.Re2histoPageModule)
+  },
+
+  {
+    path: 're3',
+    loadChildren: () => import('./pages/re3/re3.module').then( m => m.Re3PageModule)
+  },
+
+  {
+    path: 're3bow',
+    loadChildren: () => import('./pages/re3bow/re3bow.module').then( m => m.Re3bowPageModule)
+  },
+
 
   { path: 'not-found', component: NotfoundPage },
   { path: '**', redirectTo: 'not-found' },
+ 
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
