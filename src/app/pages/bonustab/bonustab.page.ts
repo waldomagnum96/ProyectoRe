@@ -14,7 +14,7 @@ export class BonustabPage implements OnInit {
     const alert = await this.alertController.create({
       header: header,
       message: message,
-      buttons: ['OK'],
+      buttons: ['Cerrar'],
       cssClass: 'custom-alert'
     });
 

@@ -16,20 +16,36 @@
   </div>
 
   <div class="audio-container">
-    <!-- Contenedor para el botón de audio -->
-    <ion-button (click)="toggleAudio()" expand="full" fill="solid" class="audio-button">
-      <ion-icon *ngIf="isPlaying" name="volume-mute"></ion-icon>
-      <ion-icon *ngIf="!isPlaying" name="musical-notes"></ion-icon>
-    </ion-button>
+    <ion-buttons>
+      <!-- Botón para reproducir/pausar -->
+      <ion-button (click)="toggleAudio()" class="custom-button">
+        <ion-icon *ngIf="isPlaying" name="pause"></ion-icon>
+        <ion-icon *ngIf="!isPlaying" name="play"></ion-icon>
+      </ion-button>
+  
+      <!-- Botón para seleccionar música -->
+      <ion-button (click)="openMusicSelector()" class="custom-button">
+        <ion-icon name="musical-notes"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </div>
-
-  <!-- Aquí va el resto del contenido de la página -->
-
-  <!-- Audio de fondo (no visible) -->
-  <audio #backgroundAudio>
-    <source src="../../../assets/audio/08 - The Front Hall.mp3" type="audio/mpeg">
+  
+  <!-- Información del audio actual -->
+  <ion-card *ngIf="currentAudioSrc">
+    <ion-card-header>
+      <ion-card-title>Reproduciendo</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ currentAudioName }}
+    </ion-card-content>
+  </ion-card>
+  
+  <!-- Contenedor de audio -->
+  <audio id="backgroundAudio" loop>
+    <source [src]="currentAudioSrc" type="audio/mpeg" />
     Tu navegador no soporta audio.
   </audio>
+
 
 
 
@@ -107,7 +123,7 @@
         <ion-button fill="clear" [routerLink] ="['/re3']">Información</ion-button>
       </mat-card-actions>
     </mat-card> 
-
+    <!--
     <mat-card class="example-card" appearance="outlined">
       <mat-card-header>
         
@@ -174,7 +190,11 @@
       <mat-card-actions>
         <ion-button fill="clear">Información</ion-button>
       </mat-card-actions>
-    </mat-card> 
+    </mat-card>
+    -->
+    
+  
+    
   </div>
 </ion-content>
 
