@@ -35,23 +35,23 @@ const routes: Routes = [
   },
   {
     path: 'residentevilzero',
-    loadChildren: () => import('./pages/residentevilzero/residentevilzero.module').then( m => m.ResidentevilzeroPageModule)
+    loadChildren: () => import('./pages/residentevilzero/residentevilzero.module').then( m => m.ResidentevilzeroPageModule), canActivate: [AuthGuard]
   },
   {
     path: 'registrar',
-    loadChildren: () => import('./pages/registrar/registrar.module').then( m => m.RegistrarPageModule)
+    loadChildren: () => import('./pages/registrar/registrar.module').then( m => m.RegistrarPageModule), canActivate: [AuthGuard]
   },
   {
     path: 'noticias',
-    loadChildren: () => import('./pages/noticias/noticias.module').then( m => m.NoticiasPageModule)
+    loadChildren: () => import('./pages/noticias/noticias.module').then( m => m.NoticiasPageModule), canActivate: [AuthGuard]
   },
   {
     path: 'modificar',
-    loadChildren: () => import('./pages/modificar/modificar.module').then( m => m.ModificarPageModule)
+    loadChildren: () => import('./pages/modificar/modificar.module').then( m => m.ModificarPageModule), canActivate: [AuthGuard]
   },
   {
     path: 'testeoapi',
-    loadChildren: () => import('./pages/testeoapi/testeoapi.module').then( m => m.TesteoapiPageModule)
+    loadChildren: () => import('./pages/testeoapi/testeoapi.module').then( m => m.TesteoapiPageModule), canActivate: [AuthGuard]
   },
   {
     path: 'notfound',
@@ -59,96 +59,114 @@ const routes: Routes = [
   },
   {
     path: 'apiresident',
-    loadChildren: () => import('./pages/apiresident/apiresident.module').then( m => m.ApiresidentPageModule)
+    loadChildren: () => import('./pages/apiresident/apiresident.module').then( m => m.ApiresidentPageModule), canActivate: [AuthGuard]
   },
   {
     path: 'pluginnativo',
-    loadChildren: () => import('./pages/pluginnativo/pluginnativo.module').then( m => m.PluginnativoPageModule)
+    loadChildren: () => import('./pages/pluginnativo/pluginnativo.module').then( m => m.PluginnativoPageModule), canActivate: [AuthGuard]
   },
   {
     path: 'residentzerobows',
-    loadChildren: () => import('./pages/residentzerobows/residentzerobows.module').then( m => m.ResidentzerobowsPageModule)
+    loadChildren: () => import('./pages/residentzerobows/residentzerobows.module').then( m => m.ResidentzerobowsPageModule), canActivate: [AuthGuard]
   },
 
 
   {
     path: 'rezeroperso',
-    loadChildren: () => import('./pages/rezeroperso/rezeroperso.module').then( m => m.RezeropersoPageModule)
+    loadChildren: () => import('./pages/rezeroperso/rezeroperso.module').then( m => m.RezeropersoPageModule), canActivate: [AuthGuard]
   },
 
   {
     path: 'rezeroarmas',
-    loadChildren: () => import('./pages/rezeroarmas/rezeroarmas.module').then( m => m.RezeroarmasPageModule)
+    loadChildren: () => import('./pages/rezeroarmas/rezeroarmas.module').then( m => m.RezeroarmasPageModule), canActivate: [AuthGuard]
   },
 
   {
     path: 'rezerohistoria',
-    loadChildren: () => import('./pages/rezerohistoria/rezerohistoria.module').then( m => m.RezerohistoriaPageModule)
+    loadChildren: () => import('./pages/rezerohistoria/rezerohistoria.module').then( m => m.RezerohistoriaPageModule), canActivate: [AuthGuard]
   },
 
   {
     path: 'reremake',
-    loadChildren: () => import('./pages/reremake/reremake.module').then( m => m.ReremakePageModule)
+    loadChildren: () => import('./pages/reremake/reremake.module').then( m => m.ReremakePageModule), canActivate: [AuthGuard]
   },
 
   {
     path: 'reremakebow',
-    loadChildren: () => import('./pages/reremakebow/reremakebow.module').then( m => m.ReremakebowPageModule)
+    loadChildren: () => import('./pages/reremakebow/reremakebow.module').then( m => m.ReremakebowPageModule), canActivate: [AuthGuard]
   },
 
   {
     path: 'reremakeperso',
-    loadChildren: () => import('./pages/reremakeperso/reremakeperso.module').then( m => m.ReremakepersoPageModule)
+    loadChildren: () => import('./pages/reremakeperso/reremakeperso.module').then( m => m.ReremakepersoPageModule), canActivate: [AuthGuard]
   },
 
   {
     path: 'reremakearmas',
-    loadChildren: () => import('./pages/reremakearmas/reremakearmas.module').then( m => m.ReremakearmasPageModule)
+    loadChildren: () => import('./pages/reremakearmas/reremakearmas.module').then( m => m.ReremakearmasPageModule), canActivate: [AuthGuard]
   },
 
   {
     path: 'reremakehistoria',
-    loadChildren: () => import('./pages/reremakehistoria/reremakehistoria.module').then( m => m.ReremakehistoriaPageModule)
+    loadChildren: () => import('./pages/reremakehistoria/reremakehistoria.module').then( m => m.ReremakehistoriaPageModule), canActivate: [AuthGuard]
   },
 
   {
     path: 're2',
-    loadChildren: () => import('./pages/re2/re2.module').then( m => m.Re2PageModule)
+    loadChildren: () => import('./pages/re2/re2.module').then( m => m.Re2PageModule), canActivate: [AuthGuard]
   },
 
   {
     path: 're2bow',
-    loadChildren: () => import('./pages/re2bow/re2bow.module').then( m => m.Re2bowPageModule)
+    loadChildren: () => import('./pages/re2bow/re2bow.module').then( m => m.Re2bowPageModule), canActivate: [AuthGuard]
   },
 
   {
     path: 're2perso',
-    loadChildren: () => import('./pages/re2perso/re2perso.module').then( m => m.Re2persoPageModule)
+    loadChildren: () => import('./pages/re2perso/re2perso.module').then( m => m.Re2persoPageModule), canActivate: [AuthGuard]
   },
 
   {
     path: 're2arma',
-    loadChildren: () => import('./pages/re2arma/re2arma.module').then( m => m.Re2armaPageModule)
+    loadChildren: () => import('./pages/re2arma/re2arma.module').then( m => m.Re2armaPageModule), canActivate: [AuthGuard]
   },
 
   {
     path: 're2histo',
-    loadChildren: () => import('./pages/re2histo/re2histo.module').then( m => m.Re2histoPageModule)
+    loadChildren: () => import('./pages/re2histo/re2histo.module').then( m => m.Re2histoPageModule), canActivate: [AuthGuard]
   },
 
   {
     path: 're3',
-    loadChildren: () => import('./pages/re3/re3.module').then( m => m.Re3PageModule)
+    loadChildren: () => import('./pages/re3/re3.module').then( m => m.Re3PageModule), canActivate: [AuthGuard]
   },
 
   {
     path: 're3bow',
-    loadChildren: () => import('./pages/re3bow/re3bow.module').then( m => m.Re3bowPageModule)
+    loadChildren: () => import('./pages/re3bow/re3bow.module').then( m => m.Re3bowPageModule), canActivate: [AuthGuard]
+  },
+
+  {
+    path: 're3pero',
+    loadChildren: () => import('./pages/re3pero/re3pero.module').then( m => m.Re3peroPageModule), canActivate: [AuthGuard]
+  },
+
+  {
+    path: 're3arma',
+    loadChildren: () => import('./pages/re3arma/re3arma.module').then( m => m.Re3armaPageModule), canActivate: [AuthGuard]
+  },
+
+  {
+    path: 're3histo',
+    loadChildren: () => import('./pages/re3histo/re3histo.module').then( m => m.Re3histoPageModule), canActivate: [AuthGuard]
   },
 
 
   { path: 'not-found', component: NotfoundPage },
   { path: '**', redirectTo: 'not-found' },
+  
+  
+  
  
   
   

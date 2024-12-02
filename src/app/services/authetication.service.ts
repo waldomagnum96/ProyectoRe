@@ -30,5 +30,9 @@ export class AutheticationService {
     return await this.ngFireAuth.currentUser
   }
 
+  async setPersistence() {
+    return await this.ngFireAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+  }
+
  
 }
