@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -12,6 +13,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
   ionicForm: FormGroup;
+  showPassword: boolean = false;
 
   // email:any
   // password:any
@@ -34,6 +36,11 @@ export class LoginPage implements OnInit {
       ]
       ],
     });
+  }
+
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
   }
 
   

@@ -5,6 +5,7 @@ import { AlertController, LoadingController, ToastController } from '@ionic/angu
 import { AutheticationService} from 'src/app/services/authetication.service';
 
 
+
 @Component({
   selector: 'app-registrarse',
   templateUrl: './registrarse.page.html',
@@ -13,8 +14,11 @@ import { AutheticationService} from 'src/app/services/authetication.service';
 export class RegistrarsePage implements OnInit {
   //validad los campos de registrarse
   ionicForm: FormGroup;
+  passwordType: string = 'password';  // Inicialmente la contraseña está oculta
+  passwordIcon: string = 'eye-off-outline';  // Icono de ojo cerrado por defecto
 
   constructor(private toastController: ToastController,private loadingController: LoadingController,private authService:AutheticationService,private router: Router, public formBuilder: FormBuilder) { 
+    
 
   }
 
@@ -28,7 +32,7 @@ export class RegistrarsePage implements OnInit {
       [
         Validators.required,
         Validators.pattern("^[0-9]*$"),
-        Validators.minLength(10),
+        Validators.minLength(9),
         // Validators.min(10)
       ]
     ],
@@ -40,7 +44,7 @@ export class RegistrarsePage implements OnInit {
         ],
       ],
       password: ['', [
-        Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-8])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}'),
+        Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])[A-Za-z\\d\\W].{8,}'),
         Validators.required,
       ],
     ],
@@ -59,36 +63,67 @@ export class RegistrarsePage implements OnInit {
   //     // this.router.navigate(['/home'])
   //   })
   // }
- 
-  async signUP(){
-    const loading = await this.loadingController.create();
-    await loading.present();
-    if (this.ionicForm.valid) {
 
-      const user = await this.authService.registerUser(this.ionicForm.value.email, this.ionicForm.value.password,this.ionicForm.value.fullname).catch((err: undefined) => {
-        this.presentToast(err)
-        console.log(err);
-        loading.dismiss();
-      })
-
-      if (user) {
-        loading.dismiss();
-        this.router.navigate(['/login'])
-      }
+  togglePasswordVisibility() {
+    if (this.passwordType === 'password') {
+      this.passwordType = 'text';  // Cambiar a tipo texto para mostrar la contraseña
+      this.passwordIcon = 'eye-outline';  // Cambiar el ícono a ojo abierto
     } else {
-      return console.log('Please provide all the required values!');
+      this.passwordType = 'password';  // Cambiar de vuelta a tipo password para ocultar
+      this.passwordIcon = 'eye-off-outline';  // Cambiar el ícono a ojo cerrado
     }
   }
+
+
+
+
+
+
+
+
+
+
+ 
+  async signUP() {
+    const loading = await this.loadingController.create();
+    await loading.present();
   
-  async presentToast(message: undefined) {
-    console.log(message);
-    
+    if (this.ionicForm.valid) {
+      try {
+        const user = await this.authService.registerUser(
+          this.ionicForm.value.email,
+          this.ionicForm.value.password,
+          this.ionicForm.value.fullname
+        );
+        if (user) {
+          loading.dismiss();
+          this.router.navigate(['/login']);
+        }
+      } catch (err) {
+        console.error(err);
+        this.presentToast('Error al registrar usuario. Inténtalo de nuevo.');
+        loading.dismiss();
+      }
+    } else {
+      loading.dismiss(); // Detenemos el cargador si el formulario es inválido
+      this.presentToast('Por favor completa todos los campos correctamente.');
+      console.log('Formulario inválido');
+    }
+  }
+
+
+
+
+
+
+
+  async presentToast(message: string) {
     const toast = await this.toastController.create({
       message: message,
       duration: 1500,
       position: 'top',
     });
-
+  
     await toast.present();
   }
 }

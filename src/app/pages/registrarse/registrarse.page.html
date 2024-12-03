@@ -32,8 +32,13 @@
           </ion-text>
       </div>
       <ion-item>
-        <ion-input class="input" type="password" formControlName="password" placeholder="password" />
-        <ion-icon slot="end" name="lock-closed-outline"></ion-icon>
+        <ion-input
+            class="input"
+            [type]="passwordType"
+            formControlName="password"
+            placeholder="Password"
+          ></ion-input>
+          <ion-icon slot="end" [name]="passwordIcon" (click)="togglePasswordVisibility()"></ion-icon>
       </ion-item>
       <div style="padding-top: -26px;padding-bottom: 16px;"
         *ngIf="this.ionicForm.controls?.['password'].touched && this.ionicForm.controls?.['password'].invalid">

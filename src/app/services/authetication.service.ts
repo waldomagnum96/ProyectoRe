@@ -11,10 +11,13 @@ export class AutheticationService {
   constructor(public ngFireAuth: AngularFireAuth) { }
 
   async setPersistence() {
-      return await this.ngFireAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+    try {
+      // Establecer persistencia en local
+      await this.ngFireAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
       console.log('Persistencia establecida en LOCAL');
-     } catch (error: any) {
+    } catch (error: any) {
       console.error('Error al configurar persistencia:', error);
+    }
   }
 
   async registerUser(email: string, password: string, fullname: any){

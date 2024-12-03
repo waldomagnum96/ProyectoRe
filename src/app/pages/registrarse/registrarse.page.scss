@@ -22,8 +22,10 @@ ion-content{
   font-weight: 300;
 }
 ion-item {
-  --background: #f1f1f1;
-  border-radius: 10px;
+  --background: var(--ion-item-background, #f1f1f1); /* Por defecto en modo claro */
+  --background-dark: #333; /* Color de fondo oscuro */
+  --color-dark: #fff; /* Color de texto en el modo oscuro */
+  --border-radius: 10px;
   margin-bottom: 16px;
 }
 .loginLink{
@@ -84,3 +86,6 @@ top:20;
   --background: #FFC33f;
     margin: 30px;
 }
+
+
+

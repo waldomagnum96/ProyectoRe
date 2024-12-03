@@ -19,8 +19,17 @@
             <ion-text *ngIf="errorControl.email.errors?.pattern" class="errorInput" color="danger">Please provide valid email.</ion-text>
         </div>
         <ion-item class="boton-password">
-          <ion-input type="password" placeholder="password" formControlName="password" class="input" />
-          <ion-icon name="lock-closed-outline"></ion-icon>
+          <ion-input 
+            [type]="showPassword ? 'text' : 'password'"  
+            placeholder="password" 
+            formControlName="password" 
+            class="input">
+          </ion-input>
+          <ion-icon 
+            [name]="showPassword ? 'eye-outline' : 'eye-off-outline'" 
+            slot="end" 
+            (click)="togglePassword()">
+          </ion-icon>
         </ion-item>
         <div style="padding-top: -26px;padding-bottom: 16px;" *ngIf="this.ionicForm.controls?.['password'].touched && this.ionicForm.controls?.['password'].invalid">
             <ion-text *ngIf="errorControl.password.errors?.required" class="errorInput" color="danger">password es requerido.</ion-text>
