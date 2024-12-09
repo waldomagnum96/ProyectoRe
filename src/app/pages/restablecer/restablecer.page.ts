@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
 import { AutheticationService } from 'src/app/services/authetication.service';
 import { AuthguardService } from 'src/app/services/authguard.service';
+import { EmailService } from 'src/app/services/email.service';
 
 @Component({
   selector: 'app-restablecer',
@@ -15,7 +16,7 @@ export class RestablecerPage implements OnInit {
     nuevaCon:""
   };
   email:any
-  constructor(public alertController:AlertController, private authService: AutheticationService, private toastController: ToastController,private router: Router) { }
+  constructor(public alertController:AlertController, private authService: AutheticationService, private toastController: ToastController,private router: Router, private emailService: EmailService,) { }
 
   ngOnInit() {
   }

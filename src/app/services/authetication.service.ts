@@ -6,6 +6,9 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   providedIn: 'root'
 })
 export class AutheticationService {
+  checkIfEmailExists(email: any) {
+    throw new Error('Method not implemented.');
+  }
   auth: any;
 
   constructor(public ngFireAuth: AngularFireAuth) { }
@@ -41,9 +44,21 @@ export class AutheticationService {
     return await this.ngFireAuth.currentUser
   }
 
+
+  async sendPasswordResetEmail(email: string) {
+    try {
+      await this.ngFireAuth.sendPasswordResetEmail(email);  // Utiliza el método de Firebase para enviar el enlace
+      console.log('Enlace de restablecimiento enviado');
+    } catch (error: any) {
+      console.error('Error al enviar el enlace de restablecimiento:', error);
+      throw error;  // Re-lanzamos el error para que el componente lo pueda manejar
+    }
+  }
+}
+
   
 
   
 
  
-}
+

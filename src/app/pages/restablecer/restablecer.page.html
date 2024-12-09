@@ -1,16 +1,18 @@
 <ion-content [fullscreen]="true">
-  <div class="inicio-img"><img class="img1" src="../../../assets/img/umb.png" alt="umbrella"></div>
+  <div class="inicio-img">
+    <img class="img1" src="../../../assets/img/umbrella.png" alt="umbrella" />
+  </div>
   
   <div class="header">
-    <ion-title class="title" size="large">Ingresa tu email</ion-title>
-    <p class="subtitle">Para recibir un enlace para reestablecer tu contraseña</p>
+    <ion-title class="title" size="large">Ingresa tu correo</ion-title>
+    <p class="subtitle">Para recibir un enlace para restablecer tu contraseña</p>
   </div>
- <div class="ion-padding">
-  <ion-item>
-    <ion-input [(ngModel)]="email" placeholder="Ingresa tu email" class="input" />
-    <ion-icon name="person-outline"></ion-icon>
-  </ion-item>
-  <ion-button class="sendBtn" expand="block" shape="round" (click)="reset()">Enviar</ion-button>
+
+  <div class="ion-padding">
+    <ion-item>
+      <ion-input [(ngModel)]="email" placeholder="Ingresa tu correo" class="input" type="email"></ion-input>
+      <ion-icon name="mail-outline"></ion-icon>
+    </ion-item>
+    <ion-button class="sendBtn" expand="block" shape="round" (click)="reset()">Enviar</ion-button>
   </div>
-        
 </ion-content>

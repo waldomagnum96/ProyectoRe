@@ -161,9 +161,15 @@ const routes: Routes = [
     loadChildren: () => import('./pages/re3histo/re3histo.module').then( m => m.Re3histoPageModule), canActivate: [AuthGuard]
   },
 
+  {
+    path: 'cambiarpassword',
+    loadChildren: () => import('./pages/cambiarpassword/cambiarpassword.module').then( m => m.CambiarpasswordPageModule)
+  },
+
 
   { path: 'not-found', component: NotfoundPage },
   { path: '**', redirectTo: 'not-found' },
+  
   
   
   
